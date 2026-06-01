@@ -30,12 +30,15 @@ export function HomeView({ user, transactions, pembiayaan, onLogout }: HomeViewP
 
         <div className="relative z-10 flex justify-between items-center mb-8">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm border border-white/30">
-              <UserIcon className="w-6 h-6 text-white" />
+            <button className="p-2 -ml-2 text-white hover:bg-white/10 rounded-full transition-colors backdrop-blur-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+            </button>
+            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm border border-white/30 hidden sm:flex">
+              <UserIcon className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="text-sm text-primary-100 font-medium tracking-wide">Ahlan Wa Sahlan,</p>
-              <h1 className="text-xl font-heading font-semibold tracking-tight">{user.name}</h1>
+              <p className="text-xs text-primary-100 font-medium tracking-wide">Ahlan Wa Sahlan,</p>
+              <h1 className="text-lg font-heading font-semibold tracking-tight leading-tight">{user.name}</h1>
             </div>
           </div>
           <div className="flex items-center gap-2">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Wallet, Receipt, Plane } from 'lucide-react';
+import { Home, Wallet, Receipt, Plane, Wifi, Battery, Signal } from 'lucide-react';
 import { ViewState } from '../types';
 
 interface LayoutProps {
@@ -20,6 +20,17 @@ export function Layout({ children, activeView, onNavigate }: LayoutProps) {
     <div className="flex justify-center min-h-screen bg-gray-100">
       {/* Mobile container constraint to simulate mobile app on desktop */}
       <div className="w-full max-w-md bg-gray-50 min-h-screen relative shadow-2xl overflow-hidden flex flex-col">
+        
+        {/* Mock OS Status Bar */}
+        <div className="absolute top-0 inset-x-0 h-10 px-5 flex items-center justify-between text-[11px] font-semibold z-50 pointer-events-none text-gray-900 mix-blend-difference opacity-80" style={{ color: 'white' }}>
+          <span>09:41</span>
+          <div className="flex gap-1.5 items-center">
+            <Signal className="w-3.5 h-3.5 fill-current" />
+            <Wifi className="w-3.5 h-3.5" />
+            <Battery className="w-4 h-4 fill-current" />
+          </div>
+        </div>
+
         {/* Main Content Area */}
         <main className="flex-1 overflow-y-auto pb-24 scroll-smooth">
           {children}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { User, Transaction } from '../types';
 import { formatCurrency, formatDate } from '../lib/utils';
-import { Wallet, History, Plus, Minus, FileText, X, Check, ArrowRight, ShieldCheck, Landmark } from 'lucide-react';
+import { Wallet, History, Plus, Minus, FileText, X, Check, ArrowRight, ShieldCheck, Landmark, Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface SimpananViewProps {
@@ -88,13 +88,16 @@ export function SimpananView({ user, transactions, onSetor, onTarik }: SimpananV
       exit={{ opacity: 0, x: -20 }}
       className="min-h-screen bg-gray-50 pb-8"
     >
-      <div className="bg-white px-6 pt-12 pb-6 shadow-sm border-b border-gray-100 flex items-center gap-3 sticky top-0 z-30">
+      <div className="bg-white px-6 pt-12 pb-4 shadow-sm border-b border-gray-100 flex items-center justify-between sticky top-0 z-30 relative">
+        <button className="p-2 -ml-2 rounded-full hover:bg-gray-50 transition-colors">
+          <Menu className="w-6 h-6 text-gray-700" />
+        </button>
+        <div className="absolute left-1/2 -translate-x-1/2 text-center">
+          <h1 className="text-lg font-heading font-bold text-gray-900">Simpanan</h1>
+          <p className="text-[10px] font-medium text-gray-500 uppercase tracking-widest mt-0.5">Syariah</p>
+        </div>
         <div className="w-10 h-10 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center">
           <Wallet className="w-5 h-5" />
-        </div>
-        <div>
-          <h1 className="text-xl font-heading font-bold text-gray-900">Simpanan Syariah</h1>
-          <p className="text-xs text-gray-500">Mudarabah & Wadiah</p>
         </div>
       </div>
 
