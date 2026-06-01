@@ -1,7 +1,7 @@
 import React from 'react';
 import { User, Transaction, PembiayaanItem } from '../types';
 import { formatCurrency, formatDate } from '../lib/utils';
-import { ArrowDownLeft, ArrowUpRight, Bell, User as UserIcon, ShieldCheck, Receipt, LogOut } from 'lucide-react';
+import { ArrowDownLeft, ArrowUpRight, Bell, User as UserIcon, ShieldCheck, Receipt, LogOut, Smartphone, QrCode, Heart, TrendingUp } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface HomeViewProps {
@@ -67,20 +67,26 @@ export function HomeView({ user, transactions, pembiayaan, onLogout }: HomeViewP
       {/* Main Dashboard Content */}
       <div className="px-6 -mt-10 relative z-20 space-y-6 pb-6">
         
-        {/* Action Widgets */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow cursor-pointer group">
-            <div className="w-12 h-12 rounded-full bg-green-50 text-primary-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <ArrowDownLeft className="w-6 h-6" />
+        {/* Action Widgets - 8 Grid Menu */}
+        <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 grid grid-cols-4 gap-y-6 gap-x-2">
+          {/* Menu Items */}
+          {[
+            { icon: <ArrowDownLeft className="w-6 h-6 text-emerald-600" />, label: 'Setor', bg: 'bg-emerald-50' },
+            { icon: <ArrowUpRight className="w-6 h-6 text-orange-600" />, label: 'Tarik', bg: 'bg-orange-50' },
+            { icon: <QrCode className="w-6 h-6 text-blue-600" />, label: 'QRIS', bg: 'bg-blue-50' },
+            { icon: <Smartphone className="w-6 h-6 text-purple-600" />, label: 'PPOB', bg: 'bg-purple-50' },
+            { icon: <Receipt className="w-6 h-6 text-rose-600" />, label: 'Tagihan', bg: 'bg-rose-50' },
+            { icon: <Heart className="w-6 h-6 text-red-500" />, label: 'Ziswaf', bg: 'bg-red-50' },
+            { icon: <TrendingUp className="w-6 h-6 text-amber-600" />, label: 'Info SHU', bg: 'bg-amber-50' },
+            { icon: <ShieldCheck className="w-6 h-6 text-sky-600" />, label: 'Keamanan', bg: 'bg-sky-50' },
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center justify-center gap-2 cursor-pointer group" onClick={() => alert(`Fitur ${item.label} akan segera hadir!`)}>
+              <div className={`w-12 h-12 rounded-2xl ${item.bg} flex items-center justify-center group-hover:scale-105 transition-transform`}>
+                {item.icon}
+              </div>
+              <span className="text-[10px] font-semibold text-gray-700 text-center leading-tight">{item.label}</span>
             </div>
-            <span className="text-sm font-medium text-gray-700">Setor</span>
-          </div>
-          <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow cursor-pointer group">
-            <div className="w-12 h-12 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <ArrowUpRight className="w-6 h-6" />
-            </div>
-            <span className="text-sm font-medium text-gray-700">Tarik</span>
-          </div>
+          ))}
         </div>
 
         {/* Active Financing Reminder */}
@@ -109,6 +115,28 @@ export function HomeView({ user, transactions, pembiayaan, onLogout }: HomeViewP
             </button>
           </div>
         )}
+
+        {/* SHU Estimate Banner */}
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-4 border border-amber-100/50 flex flex-col gap-3 relative overflow-hidden">
+          <div className="absolute right-0 top-0 -mt-2 -mr-2 text-amber-500/10">
+            <TrendingUp className="w-24 h-24" />
+          </div>
+          <div className="relative z-10 flex items-center justify-between">
+            <div className="flex gap-3 items-center">
+              <div className="p-2 bg-white rounded-full text-amber-600 shadow-sm">
+                <TrendingUp className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-gray-900">Estimasi Sisa Hasil Usaha</h4>
+                <p className="text-[10px] text-gray-600 font-medium">Periode 2026 (Proyeksi)</p>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-sm font-bold text-gray-900 tabular-nums">Rp 1.450.000</div>
+              <p className="text-[10px] text-emerald-600 font-semibold">+12.5% vs thn lalu</p>
+            </div>
+          </div>
+        </div>
 
         {/* Trust Banner */}
         <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-4 border border-emerald-100/50 flex items-center gap-4">

@@ -125,12 +125,24 @@ export function SimpananView({ user, transactions, onSetor, onTarik }: SimpananV
                 <p className="font-bold text-sm tabular-nums">{formatCurrency(user.simpananWajib)}</p>
                 <p className="text-[9px] text-primary-200/50 mt-1">Dibayar rutin bulanan</p>
               </div>
-              <div className="col-span-2 bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between items-center">
-                <div>
-                  <p className="text-primary-100/60 text-[10px] uppercase tracking-wider mb-0.5">Simpanan Sukarela (Mudarabah)</p>
-                  <p className="font-bold text-sm tabular-nums">{formatCurrency(user.simpananSukarela)}</p>
+              <div className="col-span-2 bg-white/5 p-4 rounded-xl border border-white/10">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <p className="text-primary-100/60 text-[10px] uppercase tracking-wider mb-0.5">Simpanan Sukarela (Mudarabah)</p>
+                    <p className="font-bold text-sm tabular-nums">{formatCurrency(user.simpananSukarela)}</p>
+                  </div>
+                  <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-1 rounded border border-emerald-500/30">Akad Mudarabah</span>
                 </div>
-                <span className="text-[10px] bg-primary-500/30 text-emerald-300 font-semibold px-2 py-1 rounded-md">Bagi Hasil</span>
+                <div className="border-t border-white/10 pt-3 flex justify-between items-center text-[10px]">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-primary-200/50">Nisbah Anggota</span>
+                    <span className="font-semibold text-primary-100">45%</span>
+                  </div>
+                  <div className="flex flex-col gap-0.5 text-right">
+                    <span className="text-primary-200/50">Proyeksi Bagi Hasil Bulan Ini</span>
+                    <span className="font-semibold text-emerald-300">+ Rp 24.500</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

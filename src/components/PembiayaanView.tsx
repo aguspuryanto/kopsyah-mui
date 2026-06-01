@@ -119,7 +119,10 @@ export function PembiayaanView({ pembiayaan }: PembiayaanViewProps) {
                     <div className="flex justify-between items-center mb-4">
                       <div>
                         <p className="text-xs text-gray-500 mb-0.5">Angsuran Bulan Ini</p>
-                        <p className="font-bold text-gray-900">{formatCurrency(item.monthlyInstallment)}</p>
+                        <div className="flex items-center gap-2">
+                          <p className="font-bold text-gray-900">{formatCurrency(item.monthlyInstallment)}</p>
+                          <span className="text-[9px] bg-emerald-50 text-emerald-600 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">0% Denda</span>
+                        </div>
                       </div>
                       <div className="text-right">
                         <p className="text-xs text-gray-500 mb-0.5">Jatuh Tempo</p>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Lock, Mail, User as UserIcon, Phone, FileText, ArrowRight, Eye, EyeOff, ShieldAlert, CheckCircle2 } from 'lucide-react';
+import { Lock, Mail, User as UserIcon, Phone, FileText, ArrowRight, Eye, EyeOff, ShieldAlert, CheckCircle2, Fingerprint } from 'lucide-react';
 import { User } from '../types';
 
 interface AuthViewProps {
@@ -245,6 +245,19 @@ export function AuthView({ onSuccess }: AuthViewProps) {
                 className="w-full mt-6 bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99]"
               >
                 Masuk Ke Layanan <ArrowRight className="w-4 h-4" />
+              </button>
+              
+              <div className="relative flex items-center justify-center mt-6">
+                <span className="absolute bg-white px-2 text-xs text-gray-400">atau</span>
+                <div className="w-full h-px bg-gray-100"></div>
+              </div>
+              
+              <button
+                type="button"
+                onClick={() => alert('Simulasi: Verifikasi Biometrik (Face ID / Fingerprint) Berhasil!')}
+                className="w-full mt-6 bg-gray-50 border border-gray-200 hover:bg-gray-100 text-gray-700 font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+              >
+                <Fingerprint className="w-5 h-5 text-primary-600" /> Masuk dengan Biometrik
               </button>
             </form>
           ) : (
