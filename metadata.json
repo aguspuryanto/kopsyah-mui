@@ -1,0 +1,6 @@
+{
+  "name": "SPPS Kopsyah MUI Jatim",
+  "description": "Aplikasi layanan Simpanan, Pembiayaan Syariah, dan Talangan Haji/Umroh untuk Koperasi Syariah MUI Jawa Timur.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
