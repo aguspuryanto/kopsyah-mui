@@ -1,4 +1,4 @@
-export type ViewState = 'home' | 'simpanan' | 'pembiayaan' | 'haji';
+export type ViewState = 'home' | 'simpanan' | 'pembiayaan' | 'haji' | 'assistant';
 
 export interface User {
   id: string;

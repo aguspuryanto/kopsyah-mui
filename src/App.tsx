@@ -14,6 +14,8 @@ import { HajiView } from './components/HajiView';
 import { AuthView } from './components/AuthView';
 import { AnimatePresence } from 'motion/react';
 
+import { AssistantView } from './components/AssistantView';
+
 export default function App() {
   const [activeView, setActiveView] = useState<ViewState>('home');
   const [user, setUser] = useState<User | null>(null);
@@ -208,6 +210,8 @@ export default function App() {
         return <PembiayaanView key="pembiayaan" pembiayaan={activePembiayaan} />;
       case 'haji':
         return <HajiView key="haji" program={userHajiProgram} />;
+      case 'assistant':
+        return <AssistantView key="assistant" user={user} onBack={() => setActiveView('home')} />;
       default:
         return (
           <HomeView

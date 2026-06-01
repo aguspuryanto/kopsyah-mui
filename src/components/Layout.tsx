@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Wallet, Receipt, Plane, Wifi, Battery, Signal } from 'lucide-react';
+import { Home, Wallet, Receipt, Plane, Wifi, Battery, Signal, MessageCircle } from 'lucide-react';
 import { ViewState } from '../types';
 
 interface LayoutProps {
@@ -32,9 +32,28 @@ export function Layout({ children, activeView, onNavigate }: LayoutProps) {
         </div>
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto pb-24 scroll-smooth">
+        <main className="flex-1 overflow-y-auto pb-24 scroll-smooth pb-[100px]">
           {children}
         </main>
+
+        {/* WhatsApp AI Assistant FAB */}
+        {activeView !== 'assistant' && (
+          <div className="absolute bottom-24 right-4 z-40">
+            <button 
+              onClick={() => onNavigate('assistant')}
+              className="bg-[#25D366] hover:bg-[#128C7E] text-white p-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center relative group"
+            >
+              <MessageCircle className="w-6 h-6" />
+              {/* Online Indicator Dot */}
+              <span className="absolute top-1 right-1 w-3 h-3 bg-white border-2 border-[#25D366] rounded-full"></span>
+              
+              {/* Tooltip */}
+              <span className="absolute right-full mr-3 bg-white text-gray-800 text-xs font-semibold px-3 py-1.5 rounded-xl shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-gray-100">
+                Tanya CS AI
+              </span>
+            </button>
+          </div>
+        )}
 
         {/* Bottom Navigation */}
         <nav className="absolute bottom-0 w-full bg-white border-t border-gray-200 px-2 py-3 rounded-t-2xl shadow-[0_-4px_10px_rgba(0,0,0,0.05)] z-50">
